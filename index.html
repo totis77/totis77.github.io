@@ -269,18 +269,26 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter=".filter-journal">Journals</li>
+              <li data-filter=".filter-conf">Conferences</li>
+              <li data-filter=".filter-book">Book Chapters</li>
             </ul>
           </div>
         </div>
 
-        <div class="publistYear">2019</div>
-        <div id="cgf2014pag" class="row" data-aos="fade-in">
-          <div class="row publistItem filter-app" >
-              <div class="col-sm-3 portfolio-wrap">
-                  <img src="publications/img/cgf2014-pag.jpg" alt="..." class="img-fluid img-rounded center-block" title="cgf2014pag teaser">
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+
+        <div class="portfolio-item * filter-journal filter-conf filter-book publistYear">
+          2014
+        </div>
+        
+        <!-- Start of Publication -->
+        <div class="portfolio-item filter-journal">
+          <div id="cgf2014pag" class="row publistItem fade-up " >
+            <!-- Teaser image-->
+              <div class="col-sm-2 portfolio-wrap">
+                  <img src="publications/img/cgf2014-pag.jpg" alt="..." class="img-fluid img-rounded center-block" title="cgf2014pag teaser" class="abstract">
                   <div class="portfolio-links">
                     <a href="publications/img/cgf2014-pag.jpg" data-gall="portfolioGallery" class="venobox" title="Large Image">
                       <i class="bx bx-plus"></i>
@@ -289,127 +297,94 @@
                   </div>
               </div>
 
-              <div class="col-sm-9 text-justify">
-                  <h2 class="publistTitle">
-                    The PAG Crowd: A Graph Based Approach for Efficient Data‐Driven Crowd Simulation.
-                  </h2>
-                <span class="publistAuthors">
-                  Charalambous Panayiotis and Chrysanthou Yiorgos.
-                </span>
-                <br>
-                <span class="publistJournal">
+            <!-- Text and Links for publication -->
+            <div class="col-sm-10 text-justify">
+              <h2 class="publistTitle">
+                The PAG Crowd: A Graph Based Approach for Efficient Data‐Driven Crowd Simulation.
+              </h2>
+              <span class="publistAuthors">
+                  Panayiotis Charalambous and Yiorgos Chrysanthou.
+              </span>
+              <br>
+              <span class="publistJournal">
                   Computer Graphics Forum, vol. 33, no. 8, pp. 95-108. 2014.
-                </span>
-                <p>
+              </span>
+              <p class="abstract">
                     We present a data‐driven method for the real‐time synthesis of believable steering behaviours for virtual crowds. The proposed method interlinks the input examples into a structure we call the perception‐action graph (PAG) which can be used at run‐time to efficiently synthesize believable virtual crowds. A virtual character's state is encoded using a temporal representation, the Temporal Perception Pattern (TPP). The graph nodes store groups of similar TPPs whereas edges connecting the nodes store actions (trajectories) that were partially responsible for the transformation between the TPPs. The proposed method is being tested on various scenarios using different input data and compared against a nearest neighbours approach which is commonly employed in other data‐driven crowd simulation systems. The results show up to an order of magnitude speed‐up with similar or better simulation quality.
-                  </p>
-                  <a href="publications/cgf2014-pag.pdf.pdf">
-                    <img src="assets/img/icon-pdf3.png" width=32 "author-prepared version" title="author-prepared version">
-                  </a>
+              </p>
+              <div class="pubLinks">
+                <a href="publications/cgf2014-pag.pdf">
+                  <img src="assets/img/icon-pdf3.png" width=32 version" title="author-prepared version">
+                </a>
+                <a href="http://onlinelibrary.wiley.com/doi/10.1111/cgf.12403/abstract">
+                  <img src="assets/img/icon-eg.png" width=32  version" title="Publisher version">
+                </a>
+                <a href="http://www.cs.ucy.ac.cy/~totis/papers/cgf2014-pag.html">
+                  <img src="assets/img/icon-project.png" width=32  version" title="Project website">
+                </a>
+                <a href="http://youtu.be/QaEQpXDspvo">
+                  <img src="assets/img/icon-youtube.png" width=32  version" title="Youtube Video">
+                </a>
               </div>
-              <div class="col-xs-12">
-                  <hr>
-              </div>
+            </div>
           </div>
-      </div>
+        </div>
+        <!-- End of Publication -->
+
+        <!-- Start of Publication -->
+        <div class="portfolio-item filter-journal filter-conf">
+          <div id="pg2014pda" class="row publistItem fade-up " >
+            <!-- Teaser image-->
+              <div class="col-sm-2 portfolio-wrap">
+                  <img src="publications/img/pg2014-pda.jpg" alt="..." class="img-fluid img-rounded center-block" title="pg2014pda teaser" class="abstract">
+                  <div class="portfolio-links">
+                    <a href="publications/img/pg2014-pda.jpg" data-gall="portfolioGallery" class="venobox" title="Large Image">
+                      <i class="bx bx-plus"></i>
+                    </a>
+                    <!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
+                  </div>
+              </div>
+
+            <!-- Text and Links for publication -->
+            <div class="col-sm-10 text-justify">
+              <h2 class="publistTitle">
+                A Data‐Driven Framework for Visual Crowd Analysis.
+              </h2>
+              <span class="publistAuthors">
+                Panayiotis Charalambous, Ioannis Karamouzas, Stephen J. Guy, and Yiorgos Chrysanthou.
+              </span>
+              <br>
+              <span class="publistJournal">
+                  Computer Graphics Forum, vol. 33, no. 7, pp. 41-50. 2014. (Presented at Pacific Graphics 2014).
+              </span>
+              <p class="abstract">
+                We present a novel approach for analyzing the quality of multi-agent crowd simulation algorithms. Our approach is data-driven, taking as input a set of user-defined metrics and reference training data, either synthetic or from video footage of real crowds. Given a simulation, we formulate the crowd analysis problem as an anomaly detection problem and exploit state-of-the-art outlier detection algorithms to address it. To that end, we introduce a new framework for the visual analysis of crowd simulations. Our framework allows us to capture potentially erroneous behaviors on a per-agent basis either by automatically detecting outliers based on individual evaluation metrics or by accounting for multiple evaluation criteria in a principled fashion using Principle Component Analysis and the notion of Pareto Optimality. We discuss optimizations necessary to allow real-time performance on large datasets and demonstrate the applicability of our framework through the analysis of simulations created by several widely-used methods, including a simulation from a commercial game.
+              </p>
+              <div class="pubLinks">
+                <a href="publications/pg2014-evaluation.pdf">
+                  <img src="assets/img/icon-pdf3.png" width=32 version" title="author-prepared version">
+                </a>
+                <a href="http://onlinelibrary.wiley.com/doi/10.1111/cgf.12472/abstract">
+                  <img src="assets/img/icon-eg.png" width=32  version" title="Publisher version">
+                </a>
+                <a href="http://www.cs.ucy.ac.cy/~totis/papers/pg2014.html">
+                  <img src="assets/img/icon-project.png" width=32  version" title="Project website">
+                </a>
+                <a href="http://youtu.be/NlgClnGPit4">
+                  <img src="assets/img/icon-youtube.png" width=32  version" title="Youtube Video">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Publication -->
         
-        <!-- <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+      </div>      
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="publications/img/cgf2014-pag.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="publications/img/cgf2014-pag.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="publications/img/cgf2016-groups.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="publications/img/cgf2016-groups.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="publications/img/pg2014-pda2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="publications/img/pg2014-pda2.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
- -->
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-        </div> -->
-
-      </div>
-    </section><!-- End Portfolio Section -->
+    </section>
+    
+    <!-- End Portfolio Section -->
 
     <!-- ======= Services Section ======= -->
     <!-- <section id="services" class="services">

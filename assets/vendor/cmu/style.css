@@ -87,14 +87,14 @@ hr {
     margin:0px auto;
     margin-top: 40px;
 }
-/* 
+
 #header {
    position: relative;
    width: 100%;
-   height: 280px;
-   background-image: url('images/header.jpg');
-   background-size: 100%;
-} */
+   /* height: 280px; */
+   /* background-image: url('images/header.jpg'); */
+   /* background-size: 100%; */
+}
 
 /* #smallheader {
    position: relative;
@@ -160,7 +160,7 @@ hr {
    padding-top: 20px;
    overflow: auto;
    background-color: white;
-   background-image: url( 'images/gradient.jpg' );
+   /* background-image: url( 'images/gradient.jpg' ); */
    background-repeat: repeat-x;
 }
 
@@ -523,6 +523,7 @@ table.offeringList td:first-child a {
    background-color: white;
    background-repeat: repeat-x;
    border-top: 1px solid #ddd;
+   border-bottom: 1px solid #ddd;
 }
 .publistYear {
    font-size: 20pt;
@@ -561,6 +562,18 @@ table.offeringList td:first-child a {
    padding-left: 24px;
    padding-right: 24px;
    text-align: left;
+}
+.pubLinks {
+   text-align: left;
+   position: relative;
+   padding-left: 20px;
+   padding-right: 20px;
+   padding-bottom: 10px;
+   padding-top: 20px;
+   overflow: auto;
+   background-color: white;
+   background-repeat: repeat-x;
+   border-top: 1px solid #ddd;
 }
 
 #pubTitle {
@@ -646,17 +659,21 @@ table.offeringList td:first-child a {
 
 /* paper abstracts */
 .abstract {
-   border-top: 1px solid black;
-   padding-bottom: 40px;
+   border-top: 1px solid #ddd;
+   padding-bottom: 10px;
    text-align: justify;
 }
 .abstract img {
-   float: right;
+   float: left;
    padding-left: 20px;
    padding-bottom: 10px;
 }
 .abstract h2 {
    clear: none;
+}
+.abstract-bottom {
+   float: left;
+   text-align: justify;
 }
 
 /* =========================== POSTS =========================== */
