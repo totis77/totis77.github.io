@@ -211,7 +211,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  /* background: url("../img/hero-bg.jpg") top center; */
+  background: url("../img/BodiesOfWork2fixed2.jpg") top center;
   background-color: #050d18 ;
   background-size: cover;
 }
@@ -234,14 +234,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero h1 {
-  margin: 0 0 10px 0;
+  margin: 0 0 20px 0;
   font-size: 64px;
-  font-weight: 00;
+  font-weight: 800;
   line-height: 56px;
   color: #fff;
 }
 
-#hero p {
+#hero p { 
   color: #fff;
   margin-bottom: 50px;
   font-size: 26px;
