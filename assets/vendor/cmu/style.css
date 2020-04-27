@@ -24,9 +24,9 @@ body{
 }
 
 /* ------- FONT STACK FOR HEADERS ------- */
-#content .title, #content .date, #newsBox, .boxTitle, #navBar a:link, #navBar a:visited, #navBar a:hover, .page_item, #pageTitle, .pageContent h2, .pageContent h3, .courseTitle, .publistYear, .publistTitle, #pubTitle, #pubAbstract:before, #pubCitation:before, #pubBibTex:before, #pubLinks, #postTitle, #footer, .editButton {
+/* #content .title, #content .date, #newsBox, .boxTitle, #navBar a:link, #navBar a:visited, #navBar a:hover, .page_item, #pageTitle, .pageContent h2, .pageContent h3, .courseTitle, .publistYear, .publistTitle, #pubTitle, #pubAbstract:before, #pubCitation:before, #pubBibTex:before, #pubLinks, #postTitle, #footer, .editButton {
    font-family: "HelveticaNeue-CondensedBold", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", "Roboto Condensed", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif; font-weight:600; font-stretch:condensed;
-}
+} */
 
 
 
@@ -527,6 +527,7 @@ table.offeringList td:first-child a {
 }
 .publistYear {
    font-size: 20pt;
+   font-weight: 600;
    width: 100%;
    text-align: center;
    padding-top: 48px;
@@ -662,6 +663,7 @@ table.offeringList td:first-child a {
    border-top: 1px solid #ddd;
    padding-bottom: 10px;
    text-align: justify;
+   font-style: italic;
 }
 .abstract img {
    float: left;
