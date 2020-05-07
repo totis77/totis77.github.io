@@ -69,15 +69,20 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 9997;
   transition: all 0.5s;
   padding: 0 15px;
-  background: #040b14;
+  background: #0b192a;
+  background-color: #202020;
+  /* background-image: linear-gradient(to bottom, #323232, #0e0e0e); */
+  display: flex;
+  flex-direction: columns;
   overflow-y: auto;
+  /* align-items: flex-end; */
 }
 
 #header .profile img {
   margin: 15px auto;
   display: block;
-  width: 120px;
-  border: 8px solid #2c2f3f;
+  width: 150px;
+  border: 2px solid #dbdce0;
 }
 
 #header .profile h1 {
@@ -98,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
 #header .profile .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #212431;
+  /* background: #151f49; */
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -111,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .profile .social-links a:hover {
-  background: #149ddd;
+  background: #ff5100;
   color: #fff;
   text-decoration: none;
 }
@@ -211,7 +216,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/BodiesOfWork2fixed2.jpg") top center;
+  /* background: url("../img/BodiesOfWork2fixed2.jpg") top center; */
   background-color: #050d18 ;
   background-size: cover;
 }
@@ -1055,7 +1060,7 @@ section {
   bottom: 0;
   width: 300px;
   z-index: 9999;
-  background: #040b14;
+  background: #81818152;
 }
 
 #footer .copyright {
