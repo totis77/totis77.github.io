@@ -14,7 +14,7 @@ function setup() {
 }
 
 function draw() {
-    background(32, 32, 32, 255);
+    background(10, 10, 10, 255);
     flock.run();
 }
 

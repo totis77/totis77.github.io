@@ -70,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.5s;
   padding: 0 15px;
   background: #0b192a;
-  background-color: #202020;
+  background-color: #0A0A0A;
   /* background-image: linear-gradient(to bottom, #323232, #0e0e0e); */
   display: flex;
   flex-direction: columns;
