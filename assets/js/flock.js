@@ -4,16 +4,17 @@ function setup() {
   let canvas = createCanvas(270, 1400);
 //   createP("Drag the mouse to generate new boids.");
   canvas.parent('flock_container');
+  frameRate(20);
   flock = new Flock();
   // Add an initial set of boids into the system
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 50; i++) {
     let b = new Boid(Math.random() * width, Math.random() * height);
     flock.addBoid(b);
   }
 }
 
 function draw() {
-    background(32, 32, 32, 100);
+    background(32, 32, 32, 255);
     flock.run();
 }
 
@@ -54,7 +55,7 @@ Flock.prototype.addBoid = function(b) {
 function Boid(x, y) {
   this.acceleration = createVector(0, 0);
   this.r = 3.50;
-  this.maxspeed = 2;    // Maximum speed
+  this.maxspeed = 3;    // Maximum speed
   this.maxforce = 0.2; // Maximum steering force
   this.position = createVector(x, y);
   this.velocity = createVector(random(-1, 1), random(-1, 1));
@@ -119,9 +120,9 @@ Boid.prototype.seek = function(target) {
 Boid.prototype.render = function() {
   // Draw a triangle rotated in the direction of velocity
   let theta = this.velocity.heading() + radians(90);
-  fill(150, 150 + this.velocity.x * 100, 150 + this.velocity.y * 100, 50);
+  fill(50, 50 + this.velocity.x * 50, 50 + this.velocity.y * 50, 150);
 //   fill(150, 200, 150, 255);
-  stroke(250, 250, 250, 100);
+  stroke(250, 250, 250, 120);
   push();
   translate(this.position.x, this.position.y);
   rotate(theta);
@@ -157,7 +158,7 @@ Boid.prototype.followMouse = function() {
 // Separation
 // Method checks for nearby boids and steers away
 Boid.prototype.separate = function(boids) {
-  let desiredseparation = 25.0;
+  let desiredseparation = 20.0;
   let steer = createVector(0, 0);
   let count = 0;
   // For every boid in the system, check if it's too close
@@ -193,7 +194,7 @@ Boid.prototype.separate = function(boids) {
 // Alignment
 // For every nearby boid in the system, calculate the average velocity
 Boid.prototype.align = function(boids) {
-  let neighbordist = 30;
+  let neighbordist = 40;
   let sum = createVector(0,0);
   let count = 0;
   for (let i = 0; i < boids.length; i++) {
@@ -204,7 +205,7 @@ Boid.prototype.align = function(boids) {
       // Draw the vector
       let c = (d / neighbordist) * 255.0; 
     //   stroke(255, 255, 255, c);
-    stroke(.5 + c/3);
+    stroke(.1 * 255 + c/3);
       line(this.position.x, this.position.y, boids[i].position.x, boids[i].position.y); 
      }
   }
@@ -223,7 +224,7 @@ Boid.prototype.align = function(boids) {
 // Cohesion
 // For the average location (i.e. center) of all nearby boids, calculate steering vector towards that location
 Boid.prototype.cohesion = function(boids) {
-  let neighbordist = 50;
+  let neighbordist = 40;
   let sum = createVector(0, 0);   // Start with empty vector to accumulate all locations
   let count = 0;
   for (let i = 0; i < boids.length; i++) {
