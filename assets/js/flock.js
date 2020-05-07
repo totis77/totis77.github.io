@@ -6,14 +6,14 @@ function setup() {
   canvas.parent('flock_container');
   flock = new Flock();
   // Add an initial set of boids into the system
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 40; i++) {
     let b = new Boid(Math.random() * width, Math.random() * height);
     flock.addBoid(b);
   }
 }
 
 function draw() {
-    background(32, 32, 32, 105);
+    background(32, 32, 32, 100);
     flock.run();
 }
 
@@ -53,11 +53,12 @@ Flock.prototype.addBoid = function(b) {
 
 function Boid(x, y) {
   this.acceleration = createVector(0, 0);
-  this.velocity = createVector(random(-1, 1), random(-1, 1));
-  this.position = createVector(x, y);
-  this.r = 3.0;
+  this.r = 3.50;
   this.maxspeed = 2;    // Maximum speed
-  this.maxforce = 0.005; // Maximum steering force
+  this.maxforce = 0.2; // Maximum steering force
+  this.position = createVector(x, y);
+  this.velocity = createVector(random(-1, 1), random(-1, 1));
+  this.velocity.mult(this.maxspeed);
 }
 
 Boid.prototype.run = function(boids) {
@@ -74,14 +75,18 @@ Boid.prototype.applyForce = function(force) {
 
 // We accumulate a new acceleration each time based on three rules
 Boid.prototype.flock = function(boids) {
+    // Avoid the mouse!
+    let avm = this.followMouse();
   let sep = this.separate(boids);   // Separation
   let ali = this.align(boids);      // Alignment
   let coh = this.cohesion(boids);   // Cohesion
   // Arbitrarily weight these forces
-  sep.mult(1.5);
+  avm.mult(0.2);
+  sep.mult(2.0);
   ali.mult(1.0);
   coh.mult(1.0);
   // Add the force vectors to acceleration
+  this.applyForce(avm);
   this.applyForce(sep);
   this.applyForce(ali);
   this.applyForce(coh);
@@ -114,11 +119,13 @@ Boid.prototype.seek = function(target) {
 Boid.prototype.render = function() {
   // Draw a triangle rotated in the direction of velocity
   let theta = this.velocity.heading() + radians(90);
-  fill(this.velocity.x * 100, this.velocity.y * 100, 100, 60);
-  stroke(100, 100, 100, 100);
+  fill(150, 150 + this.velocity.x * 100, 150 + this.velocity.y * 100, 50);
+//   fill(150, 200, 150, 255);
+  stroke(250, 250, 250, 100);
   push();
   translate(this.position.x, this.position.y);
   rotate(theta);
+//   circle(0, 0, 2 * this.r)
   beginShape();
   vertex(0, -this.r * 2);
   vertex(-this.r, this.r * 2);
@@ -134,6 +141,18 @@ Boid.prototype.borders = function() {
   if (this.position.x > width + this.r) this.position.x = -this.r;
   if (this.position.y > height + this.r) this.position.y = -this.r;
 }
+
+Boid.prototype.followMouse = function() {
+    let mp = createVector(mouseX, mouseY);
+
+    steer = p5.Vector.sub(mp, this.position); 
+    let length = steer.mag();
+    steer.normalize();
+    // steer = p5.Vector.normalize(steer);
+    steer = p5.Vector.div(steer, 1 + length/100); 
+  
+    return steer;
+  }
 
 // Separation
 // Method checks for nearby boids and steers away
@@ -152,6 +171,7 @@ Boid.prototype.separate = function(boids) {
       diff.div(d);        // Weight by distance
       steer.add(diff);
       count++;            // Keep track of how many
+
     }
   }
   // Average -- divide by how many
@@ -173,7 +193,7 @@ Boid.prototype.separate = function(boids) {
 // Alignment
 // For every nearby boid in the system, calculate the average velocity
 Boid.prototype.align = function(boids) {
-  let neighbordist = 40;
+  let neighbordist = 30;
   let sum = createVector(0,0);
   let count = 0;
   for (let i = 0; i < boids.length; i++) {
@@ -181,7 +201,12 @@ Boid.prototype.align = function(boids) {
     if ((d > 0) && (d < neighbordist)) {
       sum.add(boids[i].velocity);
       count++;
-    }
+      // Draw the vector
+      let c = (d / neighbordist) * 255.0; 
+    //   stroke(255, 255, 255, c);
+    stroke(.5 + c/3);
+      line(this.position.x, this.position.y, boids[i].position.x, boids[i].position.y); 
+     }
   }
   if (count > 0) {
     sum.div(count);
