@@ -20,7 +20,7 @@ function draw() {
 
 // Add a new boid into the System
 function mouseDragged() {
-//   flock.addBoid(new Boid(mouseX, mouseY));
+  // flock.addBoid(new Boid(mouseX, mouseY));
 }
 
 // The Nature of Code
@@ -122,7 +122,7 @@ Boid.prototype.render = function() {
   let theta = this.velocity.heading() + radians(90);
   fill(50, 50 + this.velocity.x * 50, 50 + this.velocity.y * 50, 150);
 //   fill(150, 200, 150, 255);
-  stroke(250, 250, 250, 120);
+  stroke(250, 250, 250, 80);
   push();
   translate(this.position.x, this.position.y);
   rotate(theta);
