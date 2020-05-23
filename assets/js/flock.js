@@ -14,7 +14,7 @@ function setup() {
 }
 
 function draw() {
-    background(10, 10, 10, 255);
+    background(10, 10, 10, 100);
     flock.run();
 }
 
@@ -82,12 +82,12 @@ Boid.prototype.flock = function(boids) {
   let ali = this.align(boids);      // Alignment
   let coh = this.cohesion(boids);   // Cohesion
   // Arbitrarily weight these forces
-  avm.mult(0.2);
+  avm.mult(0.3);
   sep.mult(2.0);
   ali.mult(1.0);
   coh.mult(1.0);
   // Add the force vectors to acceleration
-  this.applyForce(avm);
+  // this.applyForce(avm);
   this.applyForce(sep);
   this.applyForce(ali);
   this.applyForce(coh);
@@ -120,7 +120,7 @@ Boid.prototype.seek = function(target) {
 Boid.prototype.render = function() {
   // Draw a triangle rotated in the direction of velocity
   let theta = this.velocity.heading() + radians(90);
-  fill(50, 50 + this.velocity.x * 50, 50 + this.velocity.y * 50, 150);
+  fill(150, 150 + this.velocity.x * 50, 150 + this.velocity.y * 50, 200);
 //   fill(150, 200, 150, 255);
   stroke(250, 250, 250, 80);
   push();
@@ -205,8 +205,12 @@ Boid.prototype.align = function(boids) {
       // Draw the vector
       let c = (d / neighbordist) * 255.0; 
     //   stroke(255, 255, 255, c);
-    stroke(.1 * 255 + c/3);
+      push();
+      translate(0.0, 0.0, -10.1);
+
+      stroke(.3 * 255 + c/3);
       line(this.position.x, this.position.y, boids[i].position.x, boids[i].position.y); 
+      pop();
      }
   }
   if (count > 0) {
