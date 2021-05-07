@@ -4,7 +4,7 @@ function setup() {
   let canvas = createCanvas(270, 1400);
 //   createP("Drag the mouse to generate new boids.");
   canvas.parent('flock_container');
-  frameRate(20);
+  frameRate(25);
   flock = new Flock();
   // Add an initial set of boids into the system
   for (let i = 0; i < 50; i++) {
@@ -14,13 +14,14 @@ function setup() {
 }
 
 function draw() {
-    background(10, 10, 10, 100);
+    background(10, 10, 25, 100);
     flock.run();
 }
 
 // Add a new boid into the System
 function mouseDragged() {
-  // flock.addBoid(new Boid(mouseX, mouseY));
+  // if (flock.boids.length < 100)
+  //   flock.addBoid(new Boid(mouseX, mouseY));
 }
 
 // The Nature of Code
@@ -56,7 +57,7 @@ function Boid(x, y) {
   this.acceleration = createVector(0, 0);
   this.r = 3.50;
   this.maxspeed = 3;    // Maximum speed
-  this.maxforce = 0.2; // Maximum steering force
+  this.maxforce = 0.1; // Maximum steering force
   this.position = createVector(x, y);
   this.velocity = createVector(random(-1, 1), random(-1, 1));
   this.velocity.mult(this.maxspeed);
@@ -120,7 +121,7 @@ Boid.prototype.seek = function(target) {
 Boid.prototype.render = function() {
   // Draw a triangle rotated in the direction of velocity
   let theta = this.velocity.heading() + radians(90);
-  fill(150, 150 + this.velocity.x * 50, 150 + this.velocity.y * 50, 200);
+  fill(150 + this.velocity.x * 50, 150 , 150 + this.velocity.y * 50, 100);
 //   fill(150, 200, 150, 255);
   stroke(250, 250, 250, 80);
   push();
@@ -204,12 +205,17 @@ Boid.prototype.align = function(boids) {
       count++;
       // Draw the vector
       let c = (d / neighbordist) * 255.0; 
-    //   stroke(255, 255, 255, c);
+      let d1 = p5.Vector.sub(boids[i].position, this.position);
+      d1.normalize();
+      d1.mult(2 * this.r);
+      let p1 = p5.Vector.add(this.position, d1);
+      let p2 = p5.Vector.sub(boids[i].position, d1);
       push();
       translate(0.0, 0.0, -10.1);
 
-      stroke(.3 * 255 + c/3);
-      line(this.position.x, this.position.y, boids[i].position.x, boids[i].position.y); 
+      stroke(100 + c/3, 100 + c/3, 100 + c/3, 100);
+      // line(this.position.x, this.position.y, boids[i].position.x, boids[i].position.y); 
+      line(p1.x, p1.y, p2.x, p2.y); 
       pop();
      }
   }
