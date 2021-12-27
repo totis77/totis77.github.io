@@ -14,7 +14,8 @@ function setup() {
 }
 
 function draw() {
-    background(10, 10, 25, 100);
+    background(10, 10, 25, 150);
+    // background(0, 0, 25, 155);
     flock.run();
 }
 
@@ -56,7 +57,7 @@ Flock.prototype.addBoid = function(b) {
 function Boid(x, y) {
   this.acceleration = createVector(0, 0);
   this.r = 3.50;
-  this.maxspeed = 3;    // Maximum speed
+  this.maxspeed = 2;    // Maximum speed
   this.maxforce = 0.1; // Maximum steering force
   this.position = createVector(x, y);
   this.velocity = createVector(random(-1, 1), random(-1, 1));
@@ -83,9 +84,9 @@ Boid.prototype.flock = function(boids) {
   let ali = this.align(boids);      // Alignment
   let coh = this.cohesion(boids);   // Cohesion
   // Arbitrarily weight these forces
-  avm.mult(0.3);
-  sep.mult(2.0);
-  ali.mult(1.0);
+  avm.mult(0.1);
+  sep.mult(3.0);
+  ali.mult(2.0);
   coh.mult(1.0);
   // Add the force vectors to acceleration
   // this.applyForce(avm);
